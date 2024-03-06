@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript Basics</title>
+    <style>
+
+.hidden {
+  display: none;
+}
+
+#links {
+position:absolute;
+left:40px;
+top:450px;
+width:500px;
+height:350px;
+z-index:2;
+}
+
+.infopanel {
+position:absolute;
+left:40px;
+top:15px;
+width:500px;
+height:350px;
+z-index: 2;
+animation: slideIn 2s ease-out 1, fadeIn 2s ease-out 1;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-500px);
+  }
+  to {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity:0;
+  }
+  to {
+    opacity:1;
+  }
+}
+
+</style>
+</head>
+<body>
+
+  <section id="maincontainer">
+
+    <div class="infopanel">
+        This is the first info panel. Any kind of content can go here.<br>
+        <img src="images/bee1.jpg">
+    </div>
+
+      <div class="infopanel">
+       This is the second info panel. You can't see it by default.<br>
+       <img src="images/spider2.jpg">
+      </div>
+         
+<div id="links"><a href="#" id="swapbutton">switch</a></div>
+
+  </section>
+<script>
+
+let panels = document.querySelectorAll('.infopanel'); //array
+let btn = document.querySelector('#swapbutton');
+panels[1].classList.add('hidden');
+
+//console.log(panels[1].classList);
+
+
+function showHide() {
+  //if the second panel is hidden...
+  if(panels[1].classList.contains('hidden')) {
+    //...then hide the first panel, and show the second
+  panels[0].classList.add('hidden');
+  panels[1].classList.remove('hidden');
+  } else if(panels[0].classList.contains('hidden')) {
+  panels[1].classList.add('hidden');
+  panels[0].classList.remove('hidden');
+}
+}
+
+btn.addEventListener("click",showHide,false);
+
+</script>
+</body>
+</html>

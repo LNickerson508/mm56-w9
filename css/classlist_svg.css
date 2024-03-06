@@ -1,0 +1,15 @@
+path {
+    stroke-dasharray: 1500;
+    stroke-dashoffset: 1500;
+    animation: dash 3s linear forwards;
+  }
+  
+  .hidden {
+      display: none;
+  }
+  
+  @keyframes dash {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
